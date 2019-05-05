@@ -42,7 +42,12 @@ Choose 1 - for General or 2 - for Specific>? 1
 Mean with short needle  0.6257913240395763  Mean with LongNeedle  0.5511006639108004
 
 Troubleshooting this helped me realize the error in the formula. Further assurance came from https://en.wikipedia.org/wiki/Buffon%27s_needle_problem#Case_2:_Long_needle
-Hence I changed the formula in the code to be 2l/tP
+Hence I changed the formula in the code to be 2l/tP. Probably the reason the course work has it as tp/2l is because number of not crossed needles are accounted for.
+However, even with change in calculation of p = no_crossing/number of needles instead of crossing/number of needles, the results were not satisfactory:
+[Clang 10.0.0 (clang-1000.11.45.5)] on darwin
+runfile('/Users/sunitakoppar/PycharmProjects/appliedml/BuffonNeedleSimulation.py', wdir='/Users/sunitakoppar/PycharmProjects/appliedml')
+Choose 1 - for General or 2 - for Specific>? 1
+Mean with short needle  0.08273764505892034  Mean with LongNeedle  0.09819526822409719
 
 With ShortNeedle(9,10) and LongNeedle(11,12)
 ,Python 3.7.2 (default, Jan 13 2019, 12:50:01) 
@@ -52,3 +57,9 @@ Choose 1 - for General or 2 - for Specific>? 1
 Mean with short needle  2.251835133034437  Mean with LongNeedle  2.9802521777887088
 
 Plots are available below:
+https://github.com/skopp002/appliedml/blob/master/shortNeedle_pi.png
+https://github.com/skopp002/appliedml/blob/master/LongNeedlepi.png
+
+As per http://mathworld.wolfram.com/BuffonsNeedleProblem.html the computation of pi for longer needle would be a bit more complicated since there is a potential of the line crossing 2 stripes.
+However, I have not incorporated that change. 
+
