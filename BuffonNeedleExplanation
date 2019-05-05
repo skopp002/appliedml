@@ -60,6 +60,9 @@ Plots are available below:
 https://github.com/skopp002/appliedml/blob/master/shortNeedle_pi.png
 https://github.com/skopp002/appliedml/blob/master/LongNeedlepi.png
 
+Sample workout with needle length = 2 and width = 3 is available here:
+https://github.com/skopp002/appliedml/blob/master/phys243-week3-buffneedle.pdf
+
 As per http://mathworld.wolfram.com/BuffonsNeedleProblem.html the computation of pi for longer needle would be a bit more complicated since there is a potential of the line crossing 2 stripes.
 However, I have not incorporated that change. 
 
