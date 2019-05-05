@@ -1,0 +1,54 @@
+###### Buffon's Needle Explanation:
+
+Buffon's Needle uses Monte Carlo Simulation method to establish the idea that, if we substitute possible results with random values from its probabilty distribution, after very large number of iterations, the most probable outcome will trend above the rest and present the results. 
+18th century Mathematician, Georges-Louis Leclerc, Comte de Buffon proves this with his experiment famously called Buffon's Needle Experiment.
+
+The python file BuffonNeedleSimulation.py has the one of the attempted implementations.
+The comments in the code explain the details of the program. Apart from this, there is a reference code
+(reference_bufNeedle.py) which is from https://github.com/SamuelHunter and I used it for my understanding and trials.
+
+When we execute BuffonNeedleSimulation.py, we get 2 choices. Choice =1 will pick random values for 2 variations
+ShortNeedle and LongNeedle. Choice 2 will ask for needle length and strip width to be entered.
+
+Choosing 1 when the code for ShortNeedle had needle length between 3 and 10 with strip width being 10,
+and LongNeedle between (10,15)
+runfile('/Users/sunitakoppar/PycharmProjects/appliedml/BuffonNeedleSimulation.py', wdir='/Users/sunitakoppar/PycharmProjects/appliedml')
+Choose 1 - for General or 2 - for Specific>? 1
+Mean with short needle  1.389981128834137  Mean with LongNeedle  3.392761752585501
+
+
+Between 7,10
+PyDev console: starting.
+Python 3.7.2 (default, Jan 13 2019, 12:50:01) 
+[Clang 10.0.0 (clang-1000.11.45.5)] on darwin
+runfile('/Users/sunitakoppar/PycharmProjects/appliedml/BuffonNeedleSimulation.py', wdir='/Users/sunitakoppar/PycharmProjects/appliedml')
+Choose 1 - for General or 2 - for Specific>? 1
+Mean with short needle  1.9413974361657236 
+
+With shortNeedle l = np.random.uniform(8, 9, 1) 
+Choose 1 - for General or 2 - for Specific>? 1
+Mean with short needle  1.9420344387217119  
+
+I had to increase the number of simulations and it was taking longer on my laptop.
+Reducing the variation in needle length to be closer to width of the strip reduced the deviation of pi value:
+runfile('/Users/sunitakoppar/PycharmProjects/appliedml/BuffonNeedleSimulation.py', wdir='/Users/sunitakoppar/PycharmProjects/appliedml')
+Choose 1 - for General or 2 - for Specific>? 1
+Mean with short needle  2.2543356679041695
+
+
+Trying the inverse formula for pi, as mentioned in the assignment (https://abtinshahidi.github.io/files/week3.pdf) showed incorrect values for pi
+runfile('/Users/sunitakoppar/PycharmProjects/appliedml/BuffonNeedleSimulation.py', wdir='/Users/sunitakoppar/PycharmProjects/appliedml')
+Choose 1 - for General or 2 - for Specific>? 1
+Mean with short needle  0.6257913240395763  Mean with LongNeedle  0.5511006639108004
+
+Troubleshooting this helped me realize the error in the formula. Further assurance came from https://en.wikipedia.org/wiki/Buffon%27s_needle_problem#Case_2:_Long_needle
+Hence I changed the formula in the code to be 2l/tP
+
+With ShortNeedle(9,10) and LongNeedle(11,12)
+,Python 3.7.2 (default, Jan 13 2019, 12:50:01) 
+ [Clang 10.0.0 (clang-1000.11.45.5)] on darwin
+wdir='/Users/sunitakoppar/PycharmProjects/appliedml')
+Choose 1 - for General or 2 - for Specific>? 1
+Mean with short needle  2.251835133034437  Mean with LongNeedle  2.9802521777887088
+
+Plots are available below:

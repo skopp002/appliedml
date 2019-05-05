@@ -17,13 +17,13 @@ class Needle(object):
 # To make inspection simple, lets use needle length <10 for short needles.
 class ShortNeedle(Needle):
    def __init__(self):
-       l = np.random.uniform(3, 10, 1)
+       l = np.random.uniform(9, 10, 1)
        Needle.__init__(self, l)
 
 
 class LongNeedle(Needle):
     def __init__(self):
-        l = np.random.uniform(10,15,1)
+        l = np.random.uniform(11,12,1)
         Needle.__init__(self, l)
 
 class Grid(object):
@@ -39,6 +39,8 @@ class Grid(object):
 
 def simulate_needlethrow(number_of_needles, Needletype, choice):
     """
+    The formula in the assignment seems to be incorrect. Based on https://en.wikipedia.org/wiki/Buffon%27s_needle_problem
+    The calculation for pi = 2l/Pt and not the inverse. Even the experiments prove the same
     """
     if(choice == 1):
         crossing = 0
@@ -85,7 +87,7 @@ def test_simulation(simulations, NeedleType, choice):
     """
     pi_est=[]
     noOfSim = []
-    for i in range(1000, simulations):
+    for i in range(100, simulations):
         pi_est.append(simulate_needlethrow(i, NeedleType, choice))
         noOfSim.append(i)
     return (pi_est, noOfSim)
@@ -94,7 +96,7 @@ def test_simulation(simulations, NeedleType, choice):
 #pdb.set_trace()
 if __name__ == '__main__':
   choice = int(input("Choose 1 - for General or 2 - for Specific"))
-  simulations = 3000
+  simulations = 1000
   if(choice == 1):
      (pi_short, shortsimarr) = test_simulation(simulations, ShortNeedle, choice)
      pi_short_mean = np.mean(pi_short)
