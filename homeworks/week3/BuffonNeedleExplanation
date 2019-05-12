@@ -3,9 +3,13 @@
 Buffon's Needle uses Monte Carlo Simulation method to establish the idea that, if we substitute possible results with random values from its probabilty distribution, after very large number of iterations, the most probable outcome will trend above the rest and present the results. 
 18th century Mathematician, Georges-Louis Leclerc, Comte de Buffon proves this with his experiment famously called Buffon's Needle Experiment.
 
-The python file BuffonNeedleSimulation.py has the one of the attempted implementations.
+The python file https://github.com/skopp002/appliedml/blob/master/homeworks/week3/BuffonNeedleSimulation.py has the one of the attempted implementations.
 The comments in the code explain the details of the program. Apart from this, there is a reference code
 (reference_bufNeedle.py) which is from https://github.com/SamuelHunter and I used it for my understanding and trials.
+
+All the files pertaining to this assignment are available in this directory:
+https://github.com/skopp002/appliedml/blob/master/homeworks/week3
+
 
 When we execute BuffonNeedleSimulation.py, we get 2 choices. Choice =1 will pick random values for 2 variations
 ShortNeedle and LongNeedle. Choice 2 will ask for needle length and strip width to be entered.
@@ -57,8 +61,8 @@ Choose 1 - for General or 2 - for Specific>? 1
 Mean with short needle  2.251835133034437  Mean with LongNeedle  2.9802521777887088
 
 Plots are available below:
-https://github.com/skopp002/appliedml/blob/master/shortNeedle_pi.png
-https://github.com/skopp002/appliedml/blob/master/LongNeedlepi.png
+https://github.com/skopp002/appliedml/blob/master/homeworks/week3/shortNeedle_pi.png
+https://github.com/skopp002/appliedml/blob/master/homeworks/week3/LongNeedlepi.png
 
 Sample workout with needle length = 2 and width = 3 is available here:
 https://github.com/skopp002/appliedml/blob/master/phys243-week3-buffneedle.pdf
