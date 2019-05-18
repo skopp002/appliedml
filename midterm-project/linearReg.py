@@ -6,6 +6,8 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 
+
+'''Trying linear regression since its easier to imagine'''
 model1 = LinearRegression()
 colNames = ['temp','nausea','lumbar_pain','freq_urine','micturition_pain','burning','d1_inflammation','d2_nephritis']
 data = pd.read_csv("data/acute_inflammation.tsv", sep='\t', header=None)
@@ -46,12 +48,4 @@ model2.fit(X,y2)
 model2.predict([[1.5,1,1,0,0,1]])
 
 model1.score(X,y1)
-
-
-
-'''Lets visualize using seaborn'''
-plt.figure()
-sns.distplot(data,X,y1)
-#v1 = sns.lmplot(x='nausea', y='d2_nephritis', data = data)
-plt.show
 

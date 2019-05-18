@@ -1,0 +1,23 @@
+spark-shell master="local"
+
+or
+
+spark-shell --jars "/Users/sunitakoppar/spark-2.4.3-bin-hadoop2.7/datanucleus-api-jdo-5.2.1.jar"
+
+import org.apache.spark.sql.types._
+val patientschema = StructType(
+  StructField("temp", IntegerType, true) ::
+  StructField("nausea", StringType, true) ::
+  StructField("lumbar_pain", StringType, true) ::
+  StructField("freq_urine", StringType, true) ::
+  StructField("micturition_pain", StringType, true) ::
+  StructField("burning", StringType, true) ::
+  StructField("d1_inflammation", StringType, true) ::
+  StructField("d2_nephritis", StringType, true) ::
+  Nil)
+
+
+val df = spark.read.schema(patientschema).csv("/Users/sunitakoppar/PycharmProjects/appliedml/midterm-project/data")
+df.createTempView("t")
+
+val tempscaled = spark.sql("select *, if((temp >= 35 and temp <= 37),0,(if (temp > 37 and temp <= 38.5), 1, 2)) as temp_scaled from t")
