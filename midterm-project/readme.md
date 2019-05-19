@@ -1,3 +1,6 @@
+###### MidTerm Project Writeup
+
+
 The dataset we are dealing with has 1 continuous and 5 categorical variables. 
 We typically start out with exploring the data and trying to understand corelations.
 Slicing and dicing the data using python packages like pandas is shown in  ./ExploreDataSet.py
