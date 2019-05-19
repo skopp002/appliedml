@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
 
 def getScaledTemp(actual):
     return (float(actual) - 38)
@@ -63,7 +64,7 @@ def gradientAscent(p,d, alpha, iters):
     return weights
 
 
-def plotBestFit(weights, dataMat, labelMat):
+def plotBestFit(weights, dataMat, labelMat, ylab):
     # Returns the matrix as n dimensional array
     w = weights.getA()
     dataArr = np.array(dataMat)
@@ -80,17 +81,27 @@ def plotBestFit(weights, dataMat, labelMat):
     ax = fig.add_subplot(111)
     ax.scatter(x1,y1, s=30, c='red', marker='s')
     ax.scatter(x2,y2, s=30, c='green')
-    x = np.arange(-3.0,3.0,0.1)
+    x = np.arange(-1.0,1.0,0.05)
     y = (-w[0]-w[1]*x)/w[2]
     ax.plot(x,y)
-    plt.xlabel("Symptoms");plt.ylabel("Disease");
-    plt.show()
+    plt.xlabel("Symptoms");plt.ylabel(ylab);
+    return ax,x,y
 
 if __name__ == '__main__':
-    ALPHA = 0.001
-    NUM_OF_ITERATIONS = 500
+    ALPHA = 0.002
+    NUM_OF_ITERATIONS = 4000
     data,label_d1, label_d2 = loadDataIntoMatrix("data/acute_inflammation.tsv")
-    weightsMat = gradientAscent(data,label_d1,ALPHA,NUM_OF_ITERATIONS)
-    plotBestFit(weightsMat,data,label_d1)
-    #weightsMat = gradientAscent(data,label_d2,ALPHA,NUM_OF_ITERATIONS)
-    #plotBestFit(weightsMat,data,label_d2)
+    weightsMatd1 = gradientAscent(data,label_d1,ALPHA,NUM_OF_ITERATIONS)
+    print("Weights for d1 ", weightsMatd1)
+    d1,x1,y1 = plotBestFit(weightsMatd1,data,label_d1, "Bladder inflammation")
+    weightsMatd2 = gradientAscent(data,label_d2,ALPHA,NUM_OF_ITERATIONS)
+    print("Weights for d2 ", weightsMatd2)
+    d2,x2,y2 = plotBestFit(weightsMatd2,data,label_d2, "Nephritis")
+    plt.figure()
+    plt.subplot(211)
+    d1.plot(x1,y1)
+    plt.subplot(222)
+    d2.plot(x2,y2)
+    plt.show()
+
+
