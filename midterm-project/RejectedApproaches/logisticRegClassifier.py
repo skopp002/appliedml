@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
+import random
 
 def getScaledTemp(actual):
     return (float(actual) - 38)
@@ -90,7 +91,14 @@ def plotBestFit(weights, dataMat, labelMat, ylab):
 if __name__ == '__main__':
     ALPHA = 0.002
     NUM_OF_ITERATIONS = 4000
-    data,label_d1, label_d2 = loadDataIntoMatrix("data/acute_inflammation.tsv")
+
+    with open("datafile.txt", "rb") as f:
+        data = f.read().split('\n')
+
+    random.shuffle(data)
+    train_data = data[:50]
+    test_data = data[50:]
+    data, label_d1, label_d2 = loadDataIntoMatrix("data/acute_inflammation.tsv")
     weightsMatd1 = gradientAscent(data,label_d1,ALPHA,NUM_OF_ITERATIONS)
     print("Weights for d1 ", weightsMatd1)
     d1,x1,y1 = plotBestFit(weightsMatd1,data,label_d1, "Bladder inflammation")
@@ -103,5 +111,6 @@ if __name__ == '__main__':
     plt.subplot(222)
     d2.plot(x2,y2)
     plt.show()
+
 
 

@@ -31,7 +31,11 @@ The options we have to come up with classification are:
 3. Baysean classifier
 4. Support Vector Machines
 
-We will be using Logistic Regression in this project. The optimization technique we use will be gradient ascent.
+We will be using Logistic Regression in this project. We started with optimization technique of gradient ascent and realized that
+it is not suitable for categorical data.
+Due to lack of numerical variables, plotting is not very useful on this data. However, some attempt has been made
+to plot just for exploration in logisticRegClassifier::plotBestFit method
+
 
 
 
