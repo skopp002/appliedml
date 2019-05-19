@@ -1,4 +1,4 @@
-###### MidTerm Project Writeup
+### MidTerm Project Writeup
 
 
 The dataset we are dealing with has 1 continuous and 5 categorical variables. 
