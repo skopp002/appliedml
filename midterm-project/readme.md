@@ -19,6 +19,10 @@ Nausea may or may not a causative. It could be temperature alone driving the dec
 4. Lumbar pain as per this data set seems to vary inversely with d2. 
 
 In the MiscCharts sheet, there are additional charts but they do not provide any clear finding, hence we do not use them.
+During the exploration, temperature being the only continuous variable caused some skews in the plots. Hence temperature 
+had to be scaled. Also, yes and no are not in machine friendly formats and hence had to be coded into numbers, with 1 being
+a yes and 0 being a no.  
+
 
 The problem we have at hand is that of classfication. And we will be using supervised machine learning methods.
 The options we have to come up with classification are:
