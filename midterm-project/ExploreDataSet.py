@@ -68,7 +68,7 @@ print(tempscaled)
 
 
 '''Trying to get corelation'''
-# data['nausea'] = data['nausea'].map({'yes': 1, 'no': 0})
+data['nausea'] = data['nausea'].map({'yes': 1, 'no': 0})
 # data['d1_inflammation'] = data['d1_inflammation'].str.lower().replace({'yes': 1, 'no': 0})
 # data.plot(kind='bar', x='temp', y='d1_inflammation',color='r')
 # data.plot(kind='bar', x='nausea', y='d1_inflammation',color='g')
