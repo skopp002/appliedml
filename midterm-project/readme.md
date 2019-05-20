@@ -50,12 +50,11 @@ Model Prediction for  BladderInflammation  is  [0 1 1 0 1 1 1 0 0 0 0 1 1 1 1 1 
 Model score for  BladderInflammation  is  1.0
 Prediction for random test for  BladderInflammation  is  yes_
 
-
-Model trained for  Nephritis
+_Model trained for  Nephritis
 Model Prediction for  Nephritis  is  [1 1 0 1 0 1 1 1 1 0 1 1 1 1 0 1 1 1 1 0 0 1 1 1 0 1 1 0 1 0 1 0 1 1 1 0 1
  0 0 0 0 0 1 0 1 1 0 1 0 0 1 0 1 1 1 1 1 1 1 1]
 Model score for  Nephritis  is  0.9666666666666667
-Prediction for random test for  Nephritis  is  yes
+Prediction for random test for  Nephritis  is  yes_
 -------------
 
 There are 2 random tests for both output variables with outputs of both classes and the model can be tested by altering the values in 
