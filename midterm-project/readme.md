@@ -44,7 +44,7 @@ With 80/20 split, the prediction on random tests improved and matched the expect
 #### If we change the ratio between training and test to be 50:50, the score of the model drops:
 Output below:
 
-`_runfile('/Users/sunitakoppar/PycharmProjects/appliedml/midterm-project/LogisticRegression.py', wdir='/Users/sunitakoppar/PycharmProjects/appliedml/midterm-project')
+```_runfile('/Users/sunitakoppar/PycharmProjects/appliedml/midterm-project/LogisticRegression.py', wdir='/Users/sunitakoppar/PycharmProjects/appliedml/midterm-project')
 Model trained for  BladderInflammation
 Model Prediction for  BladderInflammation  is  [0 1 1 0 1 1 1 0 0 0 0 1 1 1 1 1 0 0 1 1 1 0 0 0 0 0 0 0 0 1 0 1 1 1 0 1 0
  1 1 1 1 0 1 1 0 0 0 1 1 0 0 0 1 0 1 0 1 1 1 0]
@@ -55,7 +55,7 @@ Model Prediction for  Nephritis  is  [1 1 0 1 0 1 1 1 1 0 1 1 1 1 0 1 1 1 1 0 0 
  0 0 0 0 0 1 0 1 1 0 1 0 0 1 0 1 1 1 1 1 1 1 1]
 Model score for  Nephritis  is  0.9666666666666667
 Prediction for random test for  Nephritis  is  yes_`
--------------
+-------------```
 
 
 There are 2 random tests for both output variables with outputs of both classes and the model can be tested by altering the values in 
