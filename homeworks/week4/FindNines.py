@@ -73,20 +73,33 @@ if __name__ == '__main__':
     print("KNN Model score with order 3 is ", clf3.score(X_test, y_test))
     plt.figure(figsize=(12, 12))
     j = 331
-    # for i in range(0, 9):
-    #     example = X_test[i].reshape(28, 28)
-    #     plt.subplot(j);
-    #     plt.imshow(example, cmap=mpl.cm.binary)
-    #     plt.text(0, 2, "prediction = {}".format(y2_pred[i]))
-    #     j += 1
-    # plt.show()
+    for i in range(0, 9):
+        example = X_test[i].reshape(28, 28)
+        plt.subplot(j);
+        plt.imshow(example, cmap=mpl.cm.binary)
+        plt.text(0, 2, "prediction = {}".format(y2_pred[i]))
+        j += 1
+    plt.show()
 
     # Find all 9s
     print("All 9s")
-    nines = X_train[y_train == 9]
-    plt.imshow(nines)
-    plt.show
+    nines_train = X_train[y_train == 9]
+    nines_test = X_test[y_test == 9]
+    clf4 = KNeighborsClassifier(n_neighbors=10, p=3).fit(nines_train, y_train[y_train == 9])
+    y_pred_9 = clf4.predict(nines_test)
+    print("KNN Model score for finding 9s is  ", clf3.score(nines_test, y_test[y_test == 9]))
+    plt.figure(figsize=(12, 12))
+    j = 331
+    for i in range(0, 9):
+        example = nines_test[i].reshape(28, 28)
+        plt.subplot(j);
+        plt.imshow(example, cmap=mpl.cm.binary)
+        plt.text(0, 2, "prediction = {}".format(y_pred_9[i]))
+        j += 1
+    plt.show()
 
+    print("Confusion matrix with KNN for only 9s")
+    print(confusion_matrix(y_test[y_test == 9], y_pred_9))
 
 
     #Lets also look at confusion matrix to see how well the classifier categorized
