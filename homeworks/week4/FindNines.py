@@ -84,15 +84,8 @@ if __name__ == '__main__':
     # Find all 9s
     print("All 9s")
     nines = X_train[y_train == 9]
-    j = 332
-    for i in range(0, 9):
-        if (i == 9):
-            example = X_test[i].reshape(28, 28)
-            plt.subplot(j);
-            plt.imshow(example, cmap=mpl.cm.binary)
-            plt.text(0, 2, "prediction = {}".format(y2_pred[i]))
-        j += 1
-    plt.show()
+    plt.imshow(nines)
+    plt.show
 
 
 
