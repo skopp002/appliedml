@@ -46,7 +46,7 @@ the classifier.
 Here are the classification reports:
 
 
-KNN .......
+`KNN .......
               precision    recall  f1-score   support
            0       0.95      0.98      0.97       101
            1       0.89      0.99      0.94       119
@@ -61,9 +61,9 @@ KNN .......
     accuracy                           0.94      1000
    macro avg       0.94      0.93      0.93      1000
 weighted avg       0.94      0.94      0.94      1000
+`
 
-
-Decision Tree .......
+`Decision Tree .......
               precision    recall  f1-score   support
            0       0.86      0.83      0.84       101
            1       0.75      0.85      0.80       119
@@ -78,9 +78,9 @@ Decision Tree .......
     accuracy                           0.69      1000
    macro avg       0.69      0.68      0.68      1000
 weighted avg       0.70      0.69      0.69      1000
+`
 
-
-RandomForest .......
+`RandomForest .......
               precision    recall  f1-score   support
            0       0.96      0.98      0.97       101
            1       0.92      0.96      0.94       119
@@ -94,7 +94,7 @@ RandomForest .......
            9       0.84      0.85      0.85       106
     accuracy                           0.89      1000
    macro avg       0.89      0.89      0.89      1000
-weighted avg       0.89      0.89      0.89      1000
+weighted avg       0.89      0.89      0.89      1000`
                          
                          
  The F1 scores which are typically looking at harmonic mean of precision and recall (balanced results between how precise and how
