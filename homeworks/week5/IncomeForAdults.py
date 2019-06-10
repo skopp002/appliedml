@@ -51,27 +51,28 @@ class DataModel:
         df.education = pd.Categorical(df.education, [' preschool',' 1st-4th',' 5th-6th',' 7th-8th',' 9th',' 10th',
                                                      ' 11th',' 12th',' HS-grad',' Some-college',' Prof-school',' Bachelors',' Assoc-acdm'
                                                      ,' Assoc-voc',' Masters',' Doctorate'], ordered=True)
-        #education years didnt seem to be reliable, hence deciphered it from education
+        #eduYrs came pretty close to education. Hence dropping education
         df.education = df.education.astype("category").cat.codes
+
+        df = df.drop(['education','hoursperweek'], axis="columns")
         df.finalweight = preprocessing.scale(df.finalweight)
-        dfsample = df.head(30000)
-        # plt.figure()
-        # # plt.subplot(2, 2, 1)
-        # plt.scatter(df.eduYrs, df.maritalstatus, alpha=0.5)
-        # plt.title("maritalstatus by eduYrs")
+        # df.set_index("incomerange", inplace=True)
+        # df1 = df.loc(df['incomerange'] == 0)
+        # df2 = df.loc(df['incomerange'] == 1)
+        # plt.scatter(df1['eduYrs'], df1['race'], color='green', marker='o')
+        # plt.scatter(df2['eduYrs'], df2['race'], color='red', marker='x')
+        # plt.xlabel("education years")
+        # plt.ylabel("race")
         # plt.show()
         self.data = df
 
-    def exploreDataset(self, filename):
-         plt.figure()
-         plt.subplot(2, 2, 1)
-         plt.plot(self.data.age, self.data.incomerange, 'o', color='r')
-         plt.subplot(2, 2, 2)
-         plt.plot(self.data.nationality, self.data.incomerange, '+', color='g')
-         plt.subplot(2, 3, 1)
-         plt.plot(self.data.eduYrs, self.data.incomerange, '^', color='b')
-         # plt.subplot(2, 3, 2)
-         # plt.plot(self.data.workclass, self.data.incomerange, '^', color='b')
+    def exploreDataset(self):
+         df1 = self.data(self.data['incomerange'] == 0)
+         df2 = self.data(self.data['incomerange'] == 1)
+         plt.scatter(df1['eduYrs'],df1['race'], color='green',marker='o' )
+         plt.scatter(df2['eduYrs'], df2['race'], color='green', marker='o')
+         plt.xlabel("education years")
+         plt.ylabel("race")
          plt.show()
 
 
@@ -86,7 +87,7 @@ if __name__ == '__main__':
     y_rnd_pred = rndClf.predict(X_test)
     print("Random Forest accuracy ", accuracy_score(y_test,y_rnd_pred))
     kernelmethod = 'rbf'
-    svclassifier = SVC(kernel='rbf')  #rbf  #sigmoid  #poly
+    svclassifier = SVC(kernel=kernelmethod,gamma='auto')  #rbf  #sigmoid  #poly
     svclassifier.fit(X_train, y_train)
     y_svm_pred = svclassifier.predict(X_test)
     print("SVM ",kernelmethod," kernel ", accuracy_score(y_test,y_svm_pred))
@@ -98,15 +99,15 @@ if __name__ == '__main__':
             colors.append("r")
         else:
             colors.append("b")
-    np.random.seed(20)
-    x1 = 1.2 + 0.5 * np.random.randn(20)
-    y1 = 1.5 + 0.2 * np.random.randn(20)
-    x2 = 0 + 0.3 * np.random.randn(20)
-    y2 = 0 + 0.4 * np.random.randn(20)
-    #fig = plt.scatter(x, y, c=colors, s=0.5) Couldnt get this line to plot correctly.
+    np.random.seed(200)
+    x1 = 1.2 + 0.5 * np.random.randn(2000)
+    y1 = 1.5 + 0.2 * np.random.randn(2000)
+    x2 = 0 + 0.3 * np.random.randn(2000)
+    y2 = 0 + 0.4 * np.random.randn(2000)
+    #fig = plt.scatter(x, y, c=colors, s=0.5) #Couldnt get this line to plot correctly.
     #Hence leaving it commented
-    plt.plot(x1, y1, "r.", markersize=15)
-    plt.plot(x2, y2, "b.", markersize=15)
+    plt.plot(x1, y1, "r.", markersize=10)
+    plt.plot(x2, y2, "b.", markersize=10)
     plt.show()
 
 '''     
