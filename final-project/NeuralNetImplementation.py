@@ -9,6 +9,7 @@ from keras.layers import Conv2D, MaxPooling2D, Activation
 from keras.layers.normalization import BatchNormalization
 from keras.layers.advanced_activations import LeakyReLU
 import tensorflow as  tf
+from sklearn.metrics import accuracy_score
 
 class simpleNN:
     dataset = pd.DataFrame
@@ -34,9 +35,10 @@ class simpleNN:
         # y_train_norm = tf.utils.keras.normalize(y_train, axis =1)
         Xarr = np.asarray(X_train)
         yarr = np.asarray(y_train)
-        self.cnn_model.add(Dense(30, input_dim=2, activation='relu'))
-        self.cnn_model.add(Dense(3, activation='relu'))
-        self.cnn_model.fit(Xarr, yarr)
+        self.cnn_model.add(Dense(548, input_dim=2, activation='relu'))
+        self.cnn_model.add(Dense(30, input_dim=584, activation='softmax'))
+        self.cnn_model.add(Dense(3, activation='softmax'))
+        self.cnn_model.fit(Xarr, yarr, epochs=300)
         print(self.cnn_model.summary())
         test_eval = self.cnn_model.evaluate(X_test, y_test, verbose=0)
         print('Test loss:', test_eval[0])

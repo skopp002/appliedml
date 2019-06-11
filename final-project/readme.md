@@ -2,9 +2,12 @@ In Neural Networks, consider every input parameter (dimension) as node in the be
 Every input node has an edge to the every other node in following/forward layer. For instance here we have 
 x1 and x2 as input layer nodes. We could have nodes in the hidden layer (the number of nodes and number of layers are both configurable
 and need to be tuned). When using the built in method, the first layer has 8 units which means 8 neurons. And since 
-we have 2 input dimensions with color being the output, we start off with 2 input_dims
+we have 2 input dimensions with color being the output hence the input_dim on 1st layer is 2. As many model.add we have, 
+that many neural network layers are stacked up sequentially. Sequential are simpler models. An alternate, more flexible 
+model to Sequential is Functional. In this project, we use Sequential model.
 
-Each input node is multiplied with the edge weight and all such products are summed and a bias value is 
+The main method and the for loop in main show the actual computation of the 
+weights.Each input node is multiplied with the edge weight and all such products are summed and a bias value is 
 added. This is to balance any noise in the system through edge case data points. The output of 1st hidden layer
 becomes input for the next layer and there is a mesh of interconnects from the 1st hidden layer to the next as well
 and every edge is weighed. At the end, the output is the final layer. In the test phase, the output value 
@@ -12,8 +15,7 @@ is compared to the computed final values. The difference in the values (given ta
 is taken as error and is fed back into the system. This adjusts the weights on the edges and the process 
 is called back propogation. We typically start out with random weights and that is fine since the neural network
 trains itself through back propogation to arrive at the right weights. When we have 1 or more hidden layers
-they are called deep neural networks. The main method and the for loop in main show the actual computation of the 
-weights.
+they are called deep neural networks. 
 
 The method applied to act on the xi * wi of every node (also called the activation method) is the function
 applied to this summation at any given layer. For a sigmoid typically, 
@@ -82,6 +84,37 @@ _________________________________________________________________
 None
 Test loss: 4.123628386615836
 Test accuracy: 0.5985401472906127
+```
 
 
+###### This configuration gave the least loss and improved the accuracy:
+
+`self.cnn_model.add(Dense(548, input_dim=2, activation='relu'))            
+
+self.cnn_model.add(Dense(30, input_dim=584, activation='softmax'))
+
+self.cnn_model.add(Dense(3, activation='softmax'))
+
+With Epochs = 300. 1 epoch is an iteration on the given X and y. An epoch of 300 means 
+300 iterations. 
+`
+```Epoch 300/300
+ 32/548 [>.............................] - ETA: 0s - loss: 0.1614 - acc: 0.9688
+548/548 [==============================] - 0s 27us/step - loss: 0.2681 - acc: 0.9234
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense_1 (Dense)              (None, 548)               1644      
+_________________________________________________________________
+dense_2 (Dense)              (None, 30)                16470     
+_________________________________________________________________
+dense_3 (Dense)              (None, 3)                 93        
+=================================================================
+Total params: 18,207
+Trainable params: 18,207
+Non-trainable params: 0
+_________________________________________________________________
+None
+Test loss: 0.22622666915837866
+Test accuracy: 0.9416058402861992 
 ```
