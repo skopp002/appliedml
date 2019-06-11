@@ -1,7 +1,8 @@
-In Neural Networks, consider every input parameter (dimension) as beginning layer of the NN
-Every input node has an edge to the next layer. For instance if we have x1 and x2 as in this exercise
-and we have 3 nodes in the hidden layer (the number of nodes and number of layers are both configurable
-and need to be tuned)
+In Neural Networks, consider every input parameter (dimension) as node in the beginning layer of the NN
+Every input node has an edge to the every other node in following/forward layer. For instance here we have 
+x1 and x2 as input layer nodes. We could have nodes in the hidden layer (the number of nodes and number of layers are both configurable
+and need to be tuned). When using the built in method, the first layer has 8 units which means 8 neurons. And since 
+we have 2 input dimensions with color being the output, we start off with 2 input_dims
 
 Each input node is multiplied with the edge weight and all such products are summed and a bias value is 
 added. This is to balance any noise in the system through edge case data points. The output of 1st hidden layer
@@ -58,4 +59,29 @@ Non-trainable params: 0
 _________________________________________________________________
 None
 Test loss: 5.870483889196911
-Test accuracy: 0.18978102255041582```
+Test accuracy: 0.18978102255041582
+
+
+
+Using both layers with relu activation, the output is as below:
+Epoch 1/1
+2019-06-11 13:53:37.396956: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+ 32/548 [>.............................] - ETA: 1s - loss: 2.2418 - acc: 0.7188
+548/548 [==============================] - 0s 243us/step - loss: 3.8827 - acc: 0.5766
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense_1 (Dense)              (None, 30)                90        
+_________________________________________________________________
+dense_2 (Dense)              (None, 3)                 93        
+=================================================================
+Total params: 183
+Trainable params: 183
+Non-trainable params: 0
+_________________________________________________________________
+None
+Test loss: 4.123628386615836
+Test accuracy: 0.5985401472906127
+
+
+```
