@@ -11,7 +11,8 @@ is compared to the computed final values. The difference in the values (given ta
 is taken as error and is fed back into the system. This adjusts the weights on the edges and the process 
 is called back propogation. We typically start out with random weights and that is fine since the neural network
 trains itself through back propogation to arrive at the right weights. When we have 1 or more hidden layers
-they are called deep neural networks.
+they are called deep neural networks. The main method and the for loop in main show the actual computation of the 
+weights.
 
 The method applied to act on the xi * wi of every node (also called the activation method) is the function
 applied to this summation at any given layer. For a sigmoid typically, 
