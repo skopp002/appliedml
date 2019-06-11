@@ -18,7 +18,7 @@ trains itself through back propogation to arrive at the right weights. When we h
 they are called deep neural networks. 
 
 The method applied to act on the xi * wi of every node (also called the activation method) is the function
-applied to this summation at every node of the layer. This is forward propogation.
+applied to this summation at every node of the following layer. This is forward propogation.
 For a sigmoid typically, 
 
 ( 1 / (1 + exp(-x))) would be applied. Where x is a dot product of xi * wi
