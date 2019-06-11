@@ -8,7 +8,6 @@ from sklearn.model_selection import train_test_split
 from sklearn.svm import SVC
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
 from sklearn.ensemble import RandomForestClassifier
-import seaborn as sns
 
 '''Observations from the data:
  After cleaning the rows with missing data, our dataset has 30162 rows which is 32561 which is 93% of the data
